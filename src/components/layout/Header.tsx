@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileText, FolderOpen, Home } from "lucide-react";
@@ -18,7 +17,8 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-loffice-silver/30 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Loffice" width={40} height={40} className="rounded-lg" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Loffice" width={40} height={40} className="h-10 w-10 rounded-lg object-cover" />
           <div>
             <span className="text-lg font-bold text-loffice-teal">Loffice</span>
             <span className="ml-2 hidden text-xs text-loffice-silver sm:inline">

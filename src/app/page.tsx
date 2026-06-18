@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   FileText, Table2, Presentation, FileType,
@@ -42,10 +41,15 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-loffice-dark via-loffice-teal-dark to-loffice-teal">
-        <div className="absolute inset-0 bg-[url('/logo.png')] bg-center bg-no-repeat opacity-5 bg-[length:400px]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 text-center text-white">
-          <Image src="/logo.png" alt="Loffice" width={96} height={96}
-            className="mx-auto mb-6 rounded-2xl shadow-2xl" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="Loffice"
+            width={96}
+            height={96}
+            className="mx-auto mb-6 h-24 w-24 rounded-2xl object-cover shadow-2xl"
+          />
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Loffice
           </h1>
