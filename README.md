@@ -72,28 +72,35 @@ C:\cursor\
 
 상세: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
 
-## 개발 로드맵
+## 시작하기
 
-### Phase 1 — 분석 & 기반 (현재)
-- [x] LibreOffice 설치본 구조 분석
-- [x] GitHub 리포 생성 및 로고 확정
-- [ ] LibreOffice Core 소스 클론
-- [ ] LibreOfficeKit 빌드 환경 구성
+```bash
+npm install
+npm run dev
+```
 
-### Phase 2 — 엔진 서버
-- [ ] LOK 기반 문서 타일 렌더링 PoC
-- [ ] DOCX/ODT/ODP 뷰어 API
-- [ ] Docker 컨테이너화
+브라우저에서 **http://localhost:3001** 접속
 
-### Phase 3 — 웹 프론트엔드
-- [ ] Next.js 캔버스 뷰어 컴포넌트
-- [ ] 기본 편집 (텍스트 입력, 셀 편집)
-- [ ] lofice 기능 마이그레이션
+- **웹 앱**: http://localhost:3001
+- **엔진 API**: http://localhost:9980
 
-### Phase 4 — 배포
-- [ ] Vercel (프론트) + Render/Docker (엔진)
-- [ ] Electron Windows 앱
-- [ ] Capacitor Android 앱
+### 사용 방법
+
+1. 홈 화면에서 문서를 드래그하거나 클릭하여 업로드
+2. LibreOffice 엔진이 PDF로 변환
+3. 브라우저에서 PDF 뷰어로 문서 확인 (줌, 페이지 이동, 다운로드)
+
+### 지원 형식
+
+ODT, ODS, ODP, DOC, DOCX, XLS, XLSX, PPT, PPTX, RTF, TXT, CSV, PDF, EPUB, HTML
+
+### 환경 변수
+
+```bash
+LIBREOFFICE_PATH=C:\Program Files\LibreOffice\program\soffice.exe
+LOFFICE_ENGINE_PORT=9980
+NEXT_PUBLIC_ENGINE_URL=/engine
+```
 
 ## 라이선스
 

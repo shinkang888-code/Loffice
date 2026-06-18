@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --loffice-teal: #1b7369;
+  --loffice-gold: #b58233;
+  --loffice-dark: #1a1a2e;
+}
+
+body {
+  @apply bg-loffice-surface text-loffice-dark antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-loffice-teal px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-loffice-teal-dark active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-loffice-silver/40 bg-white px-5 py-2.5 text-sm font-semibold text-loffice-dark shadow-sm transition hover:border-loffice-teal hover:text-loffice-teal;
+  }
+  .card {
+    @apply rounded-2xl border border-loffice-silver/30 bg-white shadow-metal;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "loffice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Loffice - LibreOffice 엔진 기반 웹 종합 문서 뷰어/편집기",
+  "scripts": {
+    "dev": "concurrently -n engine,web -c cyan,magenta \"npm run dev:engine\" \"npm run dev:web\"",
+    "dev:web": "next dev -p 3001",
+    "dev:engine": "node engine/server.mjs",
+    "build": "next build",
+    "postinstall": "node -e \"const fs=require('fs');const p='node_modules/pdfjs-dist/build/pdf.worker.min.mjs';if(fs.existsSync(p))fs.copyFileSync(p,'public/pdf.worker.min.mjs')\"",
+    "start": "concurrently -n engine,web \"npm run dev:engine\" \"next start -p 3000\"",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "lucide-react": "^0.511.0",
+    "multer": "^2.0.1",
+    "next": "^15.3.3",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.3.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
+  }
+}
