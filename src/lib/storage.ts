@@ -5,6 +5,9 @@ export interface LofficeDocument {
   size: number;
   createdAt: string;
   pdfUrl: string;
+  editorUrl?: string | null;
+  editable?: boolean;
+  collabora?: boolean;
   engine: string;
 }
 

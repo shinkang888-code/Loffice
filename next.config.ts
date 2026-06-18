@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/engine/:path*",
-        destination: "http://localhost:9980/:path*",
+        destination: "http://localhost:9982/:path*",
       },
     ];
   },

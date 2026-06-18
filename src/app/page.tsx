@@ -28,10 +28,14 @@ const APPS = [
 
 export default function HomePage() {
   const [engineOk, setEngineOk] = useState(false);
+  const [collaboraOk, setCollaboraOk] = useState(false);
   const [recent, setRecent] = useState<LofficeDocument[]>([]);
 
   useEffect(() => {
-    checkEngineHealth().then((h) => setEngineOk(h.ok));
+    checkEngineHealth().then((h) => {
+      setEngineOk(h.ok);
+      setCollaboraOk(h.collabora);
+    });
     listDocuments().then((docs) => setRecent(docs.slice(0, 5)));
   }, []);
 
@@ -57,7 +61,7 @@ export default function HomePage() {
             LibreOffice 엔진 기반 웹 브라우저용 종합 문서 뷰어
           </p>
           <div className="mt-6 flex justify-center">
-            <EngineBadge online={engineOk} />
+            <EngineBadge online={engineOk} collabora={collaboraOk} />
           </div>
         </div>
       </section>
@@ -109,7 +113,7 @@ export default function HomePage() {
           </div>
           <div className="card divide-y">
             {recent.map((doc) => (
-              <Link key={doc.id} href={`/viewer?id=${doc.id}`}
+              <Link key={doc.id} href={doc.editable && doc.editorUrl ? `/editor?id=${doc.id}` : `/viewer?id=${doc.id}`}
                 className="flex items-center gap-4 px-4 py-3 transition hover:bg-loffice-teal/5">
                 <FileText className="h-5 w-5 shrink-0 text-loffice-teal" />
                 <div className="min-w-0 flex-1">

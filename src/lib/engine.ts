@@ -9,16 +9,34 @@ export interface ConvertResult {
   engine: string;
   pdfUrl: string;
   previewUrl: string;
+  editorUrl?: string | null;
+  editable?: boolean;
+  collabora?: boolean;
 }
 
-export async function checkEngineHealth(): Promise<{ ok: boolean; libreOffice: string | null }> {
+export async function checkEngineHealth(): Promise<{
+  ok: boolean;
+  libreOffice: string | null;
+  collabora: boolean;
+}> {
   try {
     const res = await fetch(`${ENGINE_URL}/health`);
     const data = await res.json();
-    return { ok: data.status === "ok", libreOffice: data.libreOffice };
+    return {
+      ok: data.status === "ok",
+      libreOffice: data.libreOffice,
+      collabora: !!data.collabora,
+    };
   } catch {
-    return { ok: false, libreOffice: null };
+    return { ok: false, libreOffice: null, collabora: false };
   }
+}
+
+export async function getEditorUrl(docId: string): Promise<string | null> {
+  const res = await fetch(`${ENGINE_URL}/api/documents/${docId}/editor-url`);
+  if (!res.ok) return null;
+  const data = await res.json();
+  return data.editorUrl ?? null;
 }
 
 export async function convertAndSave(file: File): Promise<LofficeDocument> {
@@ -39,8 +57,16 @@ export async function convertAndSave(file: File): Promise<LofficeDocument> {
     size: file.size,
     createdAt: result.createdAt,
     pdfUrl: result.pdfUrl,
+    editorUrl: result.editorUrl,
+    editable: result.editable,
+    collabora: result.collabora,
     engine: result.engine,
   };
   await saveDocument(doc);
   return doc;
+}
+
+export function getDocumentRoute(doc: LofficeDocument): string {
+  if (doc.editable && doc.editorUrl) return `/editor?id=${doc.id}`;
+  return `/viewer?id=${doc.id}`;
 }

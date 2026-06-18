@@ -1,0 +1,5805 @@
+{
+  "swriter": {
+    "module": "swriter",
+    "toolbar": {
+      "items": [
+        {
+          "command": ".uno:InsertCtrl",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ShadowCursor",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Hyphenate",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ThesaurusDialog",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ShowGraphics",
+          "type": "item"
+        },
+        {
+          "command": ".uno:BrowseView",
+          "type": "item"
+        }
+      ],
+      "separators": 3
+    },
+    "menubar": [
+      {
+        "id": ".uno:PickList",
+        "items": [
+          {
+            "command": ".uno:AddDirect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenFromWriter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenRemote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RecentFileList",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseDoc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoPilotMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TemplateMenu",
+        "items": [
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ExportAsMenu",
+        "items": [
+          {
+            "command": ".uno:ExportToPDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExportDirectToPDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExportToEPUB",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExportDirectToEPUB",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SendToMenu",
+        "items": [
+          {
+            "command": ".uno:SendMail",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsOOo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsMS",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsPDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendViaBluetooth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewGlobalDoc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewHtmlDoc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendOutlineToStarImpress",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendOutlineToClipboard",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CreateAbstract",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendAbstractToStarImpress",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SignaturesMenu",
+        "items": [
+          {
+            "command": ".uno:Signature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SignPDF",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditMenu",
+        "items": [
+          {
+            "command": ".uno:Undo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Redo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Repeat",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Cut",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Copy",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Paste",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteNestedTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteColumnsBefore",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:PasteSpecialMenu",
+        "items": [
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteNestedTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteColumnsBefore",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SelectionModeMenu",
+        "items": [
+          {
+            "command": ".uno:SelectionModeDefault",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectionModeBlock",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ChangesMenu",
+        "items": [
+          {
+            "command": ".uno:TrackChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowTrackedChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AcceptTrackedChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PreviousTrackedChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NextTrackedChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AcceptTrackedChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AcceptTrackedChangeToNext",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AcceptAllTrackedChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RejectTrackedChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RejectTrackedChangeToNext",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RejectAllTrackedChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ReinstateTrackedChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ReinstateTrackedChangeToNext",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ReinstateAllTrackedChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommentChangeTracking",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ProtectTraceChangeMode",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditCommentsMenu",
+        "items": [
+          {
+            "command": ".uno:ReplyComment",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ResolveComment",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ResolveCommentThread",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PromoteComment",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteComment",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteCommentThread",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteAuthor",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteAllNotes",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditLinksMenu",
+        "items": [
+          {
+            "command": ".uno:EditFootnote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:IndexEntryDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AuthoritiesEntryDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ViewMenu",
+        "items": [
+          {
+            "command": ".uno:PrintLayout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BrowseView",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SinglePagePerRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MultiplePagesPerRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BookView",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:PagesLayout",
+        "items": [
+          {
+            "command": ".uno:SinglePagePerRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MultiplePagesPerRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BookView",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:RulerMenu",
+        "items": [
+          {
+            "command": ".uno:Ruler",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:VRuler",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ScrollBarMenu",
+        "items": [
+          {
+            "command": ".uno:HScroll",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:VScroll",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GridMenu",
+        "items": [
+          {
+            "command": ".uno:GridVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridUse",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesMove",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ZoomMenu",
+        "items": [
+          {
+            "command": ".uno:ZoomPage",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomPageWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomOptimal",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom50Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom75Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom100Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom150Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom200Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertMenu",
+        "items": [
+          {
+            "command": ".uno:InsertPagebreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertLinebreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnBreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertBreak",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:BreaksMenu",
+        "items": [
+          {
+            "command": ".uno:InsertLinebreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnBreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertBreak",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GraphicMenu",
+        "items": [
+          {
+            "command": ".uno:Gallery",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:Scan",
+        "items": [
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ObjectMenu",
+        "items": [
+          {
+            "command": ".uno:InsertObjectStarMath",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertQrCode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertObject",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesLineMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertFrameMenu",
+        "items": [
+          {
+            "command": ".uno:InsertFrameInteract",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertFrame",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormattingMarkMenu",
+        "items": [
+          {
+            "command": ".uno:InsertNonBreakingSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertHardHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSoftHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertNarrowNobreakSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertZWSP",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertWJ",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertLRM",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRLM",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertFootnotesMenu",
+        "items": [
+          {
+            "command": ".uno:InsertFootnote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertEndnote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertFootnoteDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:IndexesMenu",
+        "items": [
+          {
+            "command": ".uno:InsertMultiIndex",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertIndexesEntry",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertAuthoritiesEntry",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertHeaderFooterMenu",
+        "items": [
+          {
+            "command": ".uno:InsertPageHeader",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertPageFooter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UseHeaderFooterMenu",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shrink",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SmallCaps",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatTextMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shrink",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SmallCaps",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatSpacingMenu",
+        "items": [
+          {
+            "command": ".uno:SpacePara1",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpacePara115",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpacePara15",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpacePara2",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ParaspaceIncrease",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ParaspaceDecrease",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:IncrementIndent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DecrementIndent",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TextAlign",
+        "items": [
+          {
+            "command": ".uno:CommonAlignLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignHorizontalCenter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignJustified",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignTop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignVerticalCenter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignBottom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SpotlightMenu",
+        "items": [
+          {
+            "command": ".uno:HighlightCharDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpotlightParaStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpotlightCharStyles",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatBulletsMenu",
+        "items": [
+          {
+            "command": ".uno:RemoveBullets",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefaultBullet",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefaultNumbering",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DecrementLevel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:IncrementLevel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DecrementSubLevels",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:IncrementSubLevels",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveDown",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveUp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveDownSubItems",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveUpSubItems",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertNeutralParagraph",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberingStart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ContinueNumbering",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpDownThisLevel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpUpThisLevel",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatImageMenu",
+        "items": [
+          {
+            "command": ".uno:Crop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExternalEdit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangePicture",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CompressGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSepia",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSobel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterInvert",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterMosaic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPopart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPoster",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRelief",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRemoveNoise",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSharpen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSmooth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSolarize",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatImageFilterMenu",
+        "items": [
+          {
+            "command": ".uno:GraphicFilterSepia",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSobel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterInvert",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterMosaic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPopart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPoster",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRelief",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRemoveNoise",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSharpen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSmooth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSolarize",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatObjectMenu",
+        "items": [
+          {
+            "command": ".uno:TransformDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatLine",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatArea",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TextAttributes",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FontWork",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatFrameMenu",
+        "items": [
+          {
+            "command": ".uno:ChainFrames",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnhainFrames",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FrameDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:WrapMenu",
+        "items": [
+          {
+            "command": ".uno:WrapOff",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapOn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapIdeal",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapThrough",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapThroughTransparencyToggle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapContour",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ContourDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapAnchorOnly",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TextWrap",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ArrangeMenu",
+        "items": [
+          {
+            "command": ".uno:BringToFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ObjectForwardOne",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ObjectBackOne",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendToBack",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetObjectToForeground",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetObjectToBackground",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:RotateFlipMenu",
+        "items": [
+          {
+            "command": ".uno:ToggleObjectRotateMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RotateLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RotateRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Rotate180",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RotateReset",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FlipVertical",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FlipHorizontal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GroupMenu",
+        "items": [
+          {
+            "command": ".uno:FormatGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatUngroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EnterGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LeaveGroup",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatStylesMenu",
+        "items": [
+          {
+            "command": ".uno:TextBodyParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TitleParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubtitleParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Heading1ParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Heading2ParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Heading3ParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:QuoteParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PreformattedParaStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HorizontalLine",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefaultCharStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EmphasisCharStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StrongEmphasisCharStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:QuoteCharStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SourceCharStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RemoveBullets",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BulletListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AlphaListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AlphaLowListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RomanListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RomanLowListStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EditStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleUpdateByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleNewByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LoadStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DesignerDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableMenu",
+        "items": [
+          {
+            "command": ".uno:InsertTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsAfter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnsAfter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableInsertMenu",
+        "items": [
+          {
+            "command": ".uno:InsertRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsAfter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnsAfter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableDeleteMenu",
+        "items": [
+          {
+            "command": ".uno:DeleteRows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteColumns",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteTable",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableSelectMenu",
+        "items": [
+          {
+            "command": ".uno:EntireCell",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EntireRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EntireColumn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectTable",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableAutoFitMenu",
+        "items": [
+          {
+            "command": ".uno:SetRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetMinimalRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DistributeRows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetMinimalColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DistributeColumns",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableConvertMenu",
+        "items": [
+          {
+            "command": ".uno:ConvertTextToTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertTableToText",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatFormMenu",
+        "items": [
+          {
+            "command": ".uno:SwitchControlDesignMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UseWizards",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Label",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Edit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CheckBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RadioButton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ListBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ComboBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Pushbutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Imagebutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormattedField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DateField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TimeField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumericField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CurrencyField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PatternField",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormMoreFieldsMenu",
+        "items": [
+          {
+            "command": ".uno:DateField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TimeField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumericField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CurrencyField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PatternField",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ContentControlsMenu",
+        "items": [
+          {
+            "command": ".uno:InsertContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertPlainTextContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertPictureContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertCheckboxContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertComboBoxContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertDropdownContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertDateContentControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ContentControlProperties",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ToolsMenu",
+        "items": [
+          {
+            "command": ".uno:SpellingAndGrammarDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpellOnline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ThesaurusDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageSelectionMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageParagraphMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:LanguageMenu",
+        "items": [
+          {
+            "command": ".uno:SetLanguageSelectionMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageParagraphMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:AutoFormatMenu",
+        "items": [
+          {
+            "command": ".uno:OnlineAutoFormat",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoFormatApply",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoFormatRedlineApply",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoCorrectDlg",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:UpdateMenu",
+        "items": [
+          {
+            "command": ".uno:UpdateAll",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Repaginate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateSelectedField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertSelectedField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateFields",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateAllIndexes",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateCurIndex",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateAllLinks",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UpdateCharts",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ProtectMenu",
+        "items": [
+          {
+            "command": ".uno:ProtectFields",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ProtectBookmarks",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:MacrosMenu",
+        "items": [
+          {
+            "command": ".uno:MacroManager",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroRecorder",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RunMacro",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BasicIDEAppear",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ScriptOrganizer",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroSignature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroOrganizer?TabId:short=1",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:WindowList",
+        "items": [
+          {
+            "command": ".uno:NewWindow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseWin",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:HelpMenu",
+        "items": [
+          {
+            "command": ".uno:HelpIndex",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExtendedHelp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Documentation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TipOfTheDay",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommandPopup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:QuestionAnswers",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendFeedback",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SafeMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GetInvolved",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Donation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowLicense",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:About",
+            "type": "menuitem"
+          }
+        ]
+      }
+    ]
+  },
+  "scalc": {
+    "module": "scalc",
+    "toolbar": {
+      "items": [
+        {
+          "command": ".uno:InsertCtrl",
+          "type": "item"
+        },
+        {
+          "command": ".uno:InsCellsCtrl",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Config",
+          "type": "item"
+        },
+        {
+          "command": ".uno:AutoFormat",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ChooseDesign",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ThesaurusDialog",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DataFilterAutoFilter",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DataFilterStandardFilter",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DataFilterSpecialFilter",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DataDataPilotRun",
+          "type": "item"
+        },
+        {
+          "command": ".uno:EuroConverter",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DefineName",
+          "type": "item"
+        },
+        {
+          "command": ".uno:GoalSeekDialog",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Group",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Ungroup",
+          "type": "item"
+        }
+      ],
+      "separators": 3
+    },
+    "menubar": [
+      {
+        "id": ".uno:PickList",
+        "items": [
+          {
+            "command": ".uno:AddDirect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenFromCalc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenRemote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RecentFileList",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseDoc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoPilotMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TemplateMenu",
+        "items": [
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SendTo",
+        "items": [
+          {
+            "command": ".uno:SendMail",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsOOo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsMS",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsPDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendViaBluetooth",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SignaturesMenu",
+        "items": [
+          {
+            "command": ".uno:Signature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SignPDF",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditMenu",
+        "items": [
+          {
+            "command": ".uno:Undo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Redo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Repeat",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Cut",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Copy",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Paste",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyText",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyValue",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyFormula",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteTransposed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:PasteSpecialMenu",
+        "items": [
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyText",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyValue",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteOnlyFormula",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteTransposed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditSelectMenu",
+        "items": [
+          {
+            "command": ".uno:TableSelectAll",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectTables",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpToNextTableSel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpToPrevTableSel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectColumn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectData",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectUnprotectedCells",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectVisibleRows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectVisibleColumns",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ChangesMenu",
+        "items": [
+          {
+            "command": ".uno:TraceChangeMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AcceptChanges",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommentChange",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ProtectTraceChangeMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CompareDocuments",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MergeDocuments",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ViewMenu",
+        "items": [
+          {
+            "command": ".uno:NormalViewMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PagebreakMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UIPicker",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AvailableToolbars",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InputLineVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StatusBarVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ViewRowColumnHeaders",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ToggleSheetGrid",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridUse",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesMove",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GridMenu",
+        "items": [
+          {
+            "command": ".uno:GridVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridUse",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesMove",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FreezeCellsMenu",
+        "items": [
+          {
+            "command": ".uno:FreezePanesColumn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FreezePanesRow",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ZoomMenu",
+        "items": [
+          {
+            "command": ".uno:ZoomPage",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomPageWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomOptimal",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom50Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom75Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom100Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom150Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom200Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertMenu",
+        "items": [
+          {
+            "command": ".uno:InsertGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertObjectChart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSparkline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataDataPilotRun",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Gallery",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GraphicMenu",
+        "items": [
+          {
+            "command": ".uno:Gallery",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:Scan",
+        "items": [
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ObjectMenu",
+        "items": [
+          {
+            "command": ".uno:InsertObjectStarMath",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertQrCode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertObject",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesLineMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormattingMarkMenu",
+        "items": [
+          {
+            "command": ".uno:InsertNonBreakingSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertHardHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSoftHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertNarrowNobreakSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertZWSP",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertWJ",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertLRM",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRLM",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FieldMenu",
+        "items": [
+          {
+            "command": ".uno:InsertFieldDateVariable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertFieldSheet",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertFieldDocTitle",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertFormMenu",
+        "items": [
+          {
+            "command": ".uno:Label",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Edit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CheckBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RadioButton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ListBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ComboBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Pushbutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Imagebutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormattedField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DateField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TimeField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumericField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CurrencyField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PatternField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GroupBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ImageControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FileControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grid",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NavigationBar",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpinButton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ScrollBar",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapText",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatTextMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WrapText",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TextAlign",
+        "items": [
+          {
+            "command": ".uno:CommonAlignLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignHorizontalCenter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignJustified",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignTop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignVerticalCenter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommonAlignBottom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:NumberFormatMenu",
+        "items": [
+          {
+            "command": ".uno:NumberFormatStandard",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatDecimal",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatPercent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatCurrency",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatDate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatTime",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatScientific",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumberFormatThousands",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:RowMenu",
+        "items": [
+          {
+            "command": ".uno:RowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HideRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowRow",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ColumnMenu",
+        "items": [
+          {
+            "command": ".uno:ColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HideColumn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowColumn",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:MergeCellsMenu",
+        "items": [
+          {
+            "command": ".uno:ToggleMergeCells",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MergeCells",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SplitCell",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatImageMenu",
+        "items": [
+          {
+            "command": ".uno:Crop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OriginalSize",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FitCellSize",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExternalEdit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangePicture",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CompressGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveGraphic",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ChartMenu",
+        "items": [
+          {
+            "command": ".uno:ExportAsGraphic",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatSparklineMenu",
+        "items": [
+          {
+            "command": ".uno:TransformDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatLine",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatArea",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TextAttributes",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ToggleObjectBezierMode",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatObjectMenu",
+        "items": [
+          {
+            "command": ".uno:TransformDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatLine",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatArea",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TextAttributes",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ToggleObjectBezierMode",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ArrangeMenu",
+        "items": [
+          {
+            "command": ".uno:BringToFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ObjectForwardOne",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ObjectBackOne",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendToBack",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetObjectToForeground",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetObjectToBackground",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FlipMenu",
+        "items": [
+          {
+            "command": ".uno:ObjectMirrorVertical",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ObjectMirrorHorizontal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GroupMenu",
+        "items": [
+          {
+            "command": ".uno:FormatGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatUngroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EnterGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LeaveGroup",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatStylesMenu",
+        "items": [
+          {
+            "command": ".uno:DefaultCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Accent1CellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Accent2CellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Accent3CellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Heading1CellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Heading2CellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GoodCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BadCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NeutralCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ErrorCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:WarningCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FootnoteCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NoteCellStyles",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleUpdateByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleNewByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DesignerDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SheetMenu",
+        "items": [
+          {
+            "command": ".uno:InsertCell",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsAfter",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertRowsMenu",
+        "items": [
+          {
+            "command": ".uno:InsertRowsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowsAfter",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertColumnsMenu",
+        "items": [
+          {
+            "command": ".uno:InsertColumnsBefore",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnsAfter",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertBreakMenu",
+        "items": [
+          {
+            "command": ".uno:InsertRowBreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnBreak",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:DelBreakMenu",
+        "items": [
+          {
+            "command": ".uno:DeleteRowbreak",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteColumnbreak",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FillCellsMenu",
+        "items": [
+          {
+            "command": ".uno:FillDown",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FillRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FillUp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FillLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FillTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FillSeries",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RandomNumberGeneratorDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:NamesMenu",
+        "items": [
+          {
+            "command": ".uno:AddName",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefineName",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SheetInsertName",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CreateNames",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefineLabelRange",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SheetCommentMenu",
+        "items": [
+          {
+            "command": ".uno:EditAnnotation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HideNote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowNote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteNote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteAllNotes",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:NavigateMenu",
+        "items": [
+          {
+            "command": ".uno:JumpToTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpToPrevTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JumpToNextTable",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:DataMenu",
+        "items": [
+          {
+            "command": ".uno:DataSort",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SortAscending",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SortDescending",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterAutoFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterStandardFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterSpecialFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterRemoveFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterHideAutoFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearAutoFilter",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FilterMenu",
+        "items": [
+          {
+            "command": ".uno:DataFilterStandardFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterSpecialFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterRemoveFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DataFilterHideAutoFilter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearAutoFilter",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:DataPilotMenu",
+        "items": [
+          {
+            "command": ".uno:InsertPivotTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RecalcPivotTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeletePivotTable",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:CellContentsMenu",
+        "items": [
+          {
+            "command": ".uno:Calculate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CalculateHard",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertFormulaToValue",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutomaticCalculation",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GroupOutlineMenu",
+        "items": [
+          {
+            "command": ".uno:Group",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Ungroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoOutline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearOutline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HideDetail",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowDetail",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:StatisticsMenu",
+        "items": []
+      },
+      {
+        "id": ".uno:ToolsMenu",
+        "items": [
+          {
+            "command": ".uno:SpellDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpellOnline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ThesaurusDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:LanguageMenu",
+        "items": [
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:AuditMenu",
+        "items": [
+          {
+            "command": ".uno:ShowPrecedents",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowDependents",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearArrows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearArrowPrecedents",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ClearArrowDependents",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowErrors",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RefreshArrows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AuditingFillMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoRefreshArrows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowInvalid",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ToolsFormsMenu",
+        "items": [
+          {
+            "command": ".uno:SwitchControlDesignMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UseWizards",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ControlProperties",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormProperties",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowFmExplorer",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TabDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AddField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenReadOnly",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoControlFocus",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:MacrosMenu",
+        "items": [
+          {
+            "command": ".uno:MacroManager",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroRecorder",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RunMacro",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BasicIDEAppear",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ScriptOrganizer",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroSignature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroOrganizer?TabId:short=1",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:WindowList",
+        "items": [
+          {
+            "command": ".uno:NewWindow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseWin",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:HelpMenu",
+        "items": [
+          {
+            "command": ".uno:HelpIndex",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExtendedHelp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Documentation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TipOfTheDay",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommandPopup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:QuestionAnswers",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendFeedback",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SafeMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GetInvolved",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Donation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowLicense",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:About",
+            "type": "menuitem"
+          }
+        ]
+      }
+    ]
+  },
+  "simpress": {
+    "module": "simpress",
+    "toolbar": {
+      "items": [
+        {
+          "command": ".uno:SelectObject",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ZoomMode",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ZoomToolBox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Text",
+          "type": "item"
+        },
+        {
+          "command": ".uno:VerticalText",
+          "type": "item"
+        },
+        {
+          "command": ".uno:FontworkGalleryFloater",
+          "type": "item"
+        },
+        {
+          "command": ".uno:XLineStyle",
+          "type": "item"
+        },
+        {
+          "command": ".uno:XLineColor",
+          "type": "item"
+        },
+        {
+          "command": ".uno:FillColor",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Line",
+          "type": "item"
+        },
+        {
+          "command": ".uno:BasicShapes.rectangle",
+          "type": "item"
+        },
+        {
+          "command": ".uno:BasicShapes.ellipse",
+          "type": "item"
+        },
+        {
+          "command": ".uno:LineArrowEnd",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ArrowsToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:LineToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ConnectorToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:BasicShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:SymbolShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ArrowShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:FlowChartShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:CalloutShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:StarShapes",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Objects3DToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:TransformDialog",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ToggleObjectRotateMode",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Mirror",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ObjectAlign",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ObjectPosition",
+          "type": "item"
+        },
+        {
+          "command": ".uno:DistributeSelection",
+          "type": "item"
+        },
+        {
+          "command": ".uno:FillShadow",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Crop",
+          "type": "item"
+        },
+        {
+          "command": ".uno:GraphicFilterToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ToggleObjectBezierMode",
+          "type": "item"
+        },
+        {
+          "command": ".uno:GlueEditMode",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ChangeBezier",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ChangePolygon",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ConvertInto3D",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ConvertInto3DLatheFast",
+          "type": "item"
+        },
+        {
+          "command": ".uno:ExtrusionToggle",
+          "type": "item"
+        },
+        {
+          "command": ".uno:InsertToolbox",
+          "type": "item"
+        },
+        {
+          "command": ".uno:Config",
+          "type": "item"
+        }
+      ],
+      "separators": 9
+    },
+    "menubar": [
+      {
+        "id": ".uno:PickList",
+        "items": [
+          {
+            "command": ".uno:AddDirect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Open",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenRemote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RecentFileList",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseDoc",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoPilotMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TemplateMenu",
+        "items": [
+          {
+            "command": ".uno:OpenTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveAsTemplate",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NewDoc",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ExportAsMenu",
+        "items": [
+          {
+            "command": ".uno:ExportToPDF",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExportDirectToPDF",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SendToMenu",
+        "items": [
+          {
+            "command": ".uno:SendMail",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendMailDocAsPDF",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SignaturesMenu",
+        "items": [
+          {
+            "command": ".uno:Signature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SignPDF",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:EditMenu",
+        "items": [
+          {
+            "command": ".uno:Undo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Redo",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Cut",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Copy",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Paste",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:PasteSpecialMenu",
+        "items": [
+          {
+            "command": ".uno:PasteUnformatted",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PasteSpecial",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ViewMenu",
+        "items": [
+          {
+            "command": ".uno:NormalMultiPaneGUI",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NotesMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DiaMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SlideMasterPage",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NotesMasterPage",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HandoutMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UIPicker",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AvailableToolbars",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StatusBarVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LeftPaneImpress",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ToggleTabBarVisibility",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BottomPaneImpress",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowRuler",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesMove",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GridMenu",
+        "items": [
+          {
+            "command": ".uno:GridVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesMove",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SnapLinesMenu",
+        "items": [
+          {
+            "command": ".uno:HelplinesVisible",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GridUse",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HelplinesUse",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SnapFrame",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SnapPoints",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SnapBorder",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:DisplayQualityMenu",
+        "items": [
+          {
+            "command": ".uno:OutputQualityColor",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutputQualityGrayscale",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutputQualityBlackWhite",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ZoomMenu",
+        "items": [
+          {
+            "command": ".uno:ZoomPage",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomPageWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomOptimal",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom50Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom75Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom100Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom150Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom200Percent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomPrevious",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomNext",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ZoomObjects",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Zoom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertMenu",
+        "items": [
+          {
+            "command": ".uno:InsertGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertAVMedia",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertObjectChart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Gallery",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PhotoAlbumDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GraphicMenu",
+        "items": [
+          {
+            "command": ".uno:Gallery",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PhotoAlbumDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:Scan",
+        "items": [
+          {
+            "command": ".uno:TwainSelect",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TwainTransfer",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ObjectMenu",
+        "items": [
+          {
+            "command": ".uno:InsertMath",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertQrCode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertObject",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ShapesLineMenu",
+        "items": [
+          {
+            "command": ".uno:Line",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Freeline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Bezier_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BezierFill",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal_Unfilled",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Polygon_Diagonal",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormattingMarkMenu",
+        "items": [
+          {
+            "command": ".uno:InsertNonBreakingSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertHardHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSoftHyphen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertNarrowNobreakSpace",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertZWSP",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertWJ",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertLRM",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRLM",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FieldMenu",
+        "items": [
+          {
+            "command": ".uno:InsertDateFieldFix",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertDateFieldVar",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertTimeFieldFix",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertTimeFieldVar",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertAuthorField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSlideField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSlideTitleField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertSlidesField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertFileField",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:InsertFormMenu",
+        "items": [
+          {
+            "command": ".uno:Label",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Edit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CheckBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RadioButton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ListBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ComboBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Pushbutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Imagebutton",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormattedField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DateField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TimeField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NumericField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CurrencyField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PatternField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GroupBox",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ImageControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FileControl",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grid",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NavigationBar",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shrink",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SmallCaps",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatTextMenu",
+        "items": [
+          {
+            "command": ".uno:Bold",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Italic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineSingle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UnderlineDouble",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Strikeout",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Overline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SuperScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SubScript",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shadowed",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineFont",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Grow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Shrink",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToUpper",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToLower",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseRotateCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToSentenceCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToTitleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToToggleCase",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SmallCaps",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHalfWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToFullWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToHiragana",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangeCaseToKatakana",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatSpacingMenu",
+        "items": [
+          {
+            "command": ".uno:SpacePara1",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpacePara15",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpacePara2",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ParaspaceIncrease",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ParaspaceDecrease",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:IncrementIndent",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DecrementIndent",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TextAlign",
+        "items": [
+          {
+            "command": ".uno:LeftPara",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CenterPara",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RightPara",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:JustifyPara",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CellVertTop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CellVertCenter",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CellVertBottom",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatBulletsMenu",
+        "items": [
+          {
+            "command": ".uno:DefaultBullet",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DefaultNumbering",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineRight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineLeft",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineDown",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OutlineUp",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatStylesMenu",
+        "items": [
+          {
+            "command": ".uno:EditStyle",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleUpdateByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:StyleNewByExample",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DesignerDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:TableMenu",
+        "items": [
+          {
+            "command": ".uno:SetMinimalRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalRowHeight",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DistributeRows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EntireRow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertRowDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteRows",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetMinimalColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetOptimalColumnWidth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DistributeColumns",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EntireColumn",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:InsertColumnDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteColumns",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MergeCells",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SplitCell",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DeleteTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SelectTable",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TableDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatImageMenu",
+        "items": [
+          {
+            "command": ".uno:Crop",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OriginalSize",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExternalEdit",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangePicture",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CompressGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SaveGraphic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSepia",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSobel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterInvert",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterMosaic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPopart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPoster",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRelief",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRemoveNoise",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSharpen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSmooth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSolarize",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatImageFilterMenu",
+        "items": [
+          {
+            "command": ".uno:GraphicFilterSepia",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSobel",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterInvert",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterMosaic",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPopart",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterPoster",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRelief",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterRemoveNoise",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSharpen",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSmooth",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GraphicFilterSolarize",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:FormatObjectMenu",
+        "items": [
+          {
+            "command": ".uno:TransformDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TextAttributes",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatLine",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatArea",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:MirrorMenu",
+        "items": [
+          {
+            "command": ".uno:MirrorVert",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MirrorHorz",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ConvertMenu",
+        "items": [
+          {
+            "command": ".uno:ChangeBezier",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChangePolygon",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:convert_to_contour",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertInto3D",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertInto3DLatheFast",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertIntoBitmap",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ConvertIntoMetaFile",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ObjectAlign",
+        "items": [
+          {
+            "command": ".uno:BringToFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Forward",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Backward",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendToBack",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BeforeObject",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BehindObject",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ReverseOrder",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ArrangeMenu",
+        "items": [
+          {
+            "command": ".uno:BringToFront",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Forward",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Backward",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendToBack",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BeforeObject",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BehindObject",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ReverseOrder",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:GroupMenu",
+        "items": [
+          {
+            "command": ".uno:FormatGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormatUngroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:EnterGroup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LeaveGroup",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SlideMenu",
+        "items": [
+          {
+            "command": ".uno:InsertSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:DuplicateSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ImportSlideFromFile",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=20",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=19",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=0",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=1",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=32",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=3",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=12",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=15",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=14",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=16",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=18",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=34",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=28",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=27",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=29",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=30",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SlideLayoutMenu",
+        "items": [
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=20",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=19",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=0",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=1",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=32",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=3",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=12",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=15",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=14",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=16",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=18",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=34",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=28",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=27",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=29",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AssignLayout?WhatLayout:long=30",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SlideMoveMenu",
+        "items": [
+          {
+            "command": ".uno:MoveSlideFirst",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveSlideUp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveSlideDown",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoveSlideLast",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:NavigateMenu",
+        "items": [
+          {
+            "command": ".uno:FirstSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PreviousSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:NextSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:LastSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GotoSlide",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:SlideShowMenu",
+        "items": [
+          {
+            "command": ".uno:Presentation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PresentationCurrentSlide",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RehearseTimings",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CustomShowDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Remote",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:PresentationDialog",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ToolsMenu",
+        "items": [
+          {
+            "command": ".uno:SpellDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SpellOnline",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ThesaurusDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:LanguageMenu",
+        "items": [
+          {
+            "command": ".uno:SetLanguageAllTextMenu",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Hyphenation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ChineseConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:HangulHanjaConversion",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MoreDictionaries",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:ToolsFormsMenu",
+        "items": [
+          {
+            "command": ".uno:SwitchControlDesignMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:UseWizards",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ControlProperties",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:FormProperties",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowFmExplorer",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TabDialog",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AddField",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:OpenReadOnly",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:AutoControlFocus",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:MacrosMenu",
+        "items": [
+          {
+            "command": ".uno:MacroManager",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroRecorder",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:RunMacro",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:BasicIDEAppear",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ScriptOrganizer",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroSignature",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:MacroOrganizer?TabId:short=1",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:WindowList",
+        "items": [
+          {
+            "command": ".uno:NewWindow",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CloseWin",
+            "type": "menuitem"
+          }
+        ]
+      },
+      {
+        "id": ".uno:HelpMenu",
+        "items": [
+          {
+            "command": ".uno:HelpIndex",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ExtendedHelp",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Documentation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:TipOfTheDay",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:CommandPopup",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:QuestionAnswers",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SendFeedback",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:SafeMode",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:GetInvolved",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:Donation",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:ShowLicense",
+            "type": "menuitem"
+          },
+          {
+            "command": ".uno:About",
+            "type": "menuitem"
+          }
+        ]
+      }
+    ]
+  }
+}

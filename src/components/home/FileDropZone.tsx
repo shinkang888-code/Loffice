@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Upload, FileUp, Loader2 } from "lucide-react";
-import { convertAndSave } from "@/lib/engine";
+import { convertAndSave, getDocumentRoute } from "@/lib/engine";
 import { cn } from "@/lib/utils";
 
 interface FileDropZoneProps {
@@ -21,7 +21,7 @@ export function FileDropZone({ className }: FileDropZoneProps) {
     setError(null);
     try {
       const doc = await convertAndSave(file);
-      router.push(`/viewer?id=${doc.id}`);
+      router.push(getDocumentRoute(doc));
     } catch (e) {
       setError(e instanceof Error ? e.message : "업로드 실패");
     } finally {
