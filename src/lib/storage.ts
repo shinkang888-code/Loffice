@@ -8,6 +8,9 @@ export interface LofficeDocument {
   editorUrl?: string | null;
   editable?: boolean;
   collabora?: boolean;
+  previewType?: string;
+  hasPdf?: boolean;
+  rawUrl?: string;
   engine: string;
 }
 

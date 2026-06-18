@@ -57,7 +57,7 @@ export function FileDropZone({ className }: FileDropZoneProps) {
         )}
       >
         <input type="file" className="hidden" onChange={onFileInput} disabled={loading}
-          accept=".odt,.ods,.odp,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.rtf,.txt,.csv,.pdf,.epub,.html,.htm" />
+          accept="*/*" />
 
         {loading ? (
           <>
@@ -73,7 +73,7 @@ export function FileDropZone({ className }: FileDropZoneProps) {
             <div className="text-center">
               <p className="text-lg font-semibold">문서를 여기에 드래그하거나 클릭</p>
               <p className="mt-1 text-sm text-gray-500">
-                DOCX, XLSX, PPTX, ODT, PDF 등 — LibreOffice 엔진으로 변환
+                모든 파일 형식 지원 — LibreOffice 엔진 미리보기 + 편집
               </p>
             </div>
             <span className="btn-primary">

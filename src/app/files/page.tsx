@@ -55,7 +55,7 @@ export default function FilesPage() {
             {docs.map((doc) => (
               <div key={doc.id} className="flex items-center gap-4 px-4 py-3">
                 <FileText className="h-5 w-5 shrink-0 text-loffice-teal" />
-                <Link href={doc.editable ? `/editor?id=${doc.id}` : `/viewer?id=${doc.id}`} className="min-w-0 flex-1 hover:text-loffice-teal">
+                <Link href={`/workspace?id=${doc.id}`} className="min-w-0 flex-1 hover:text-loffice-teal">
                   <p className="truncate font-medium">{doc.name}</p>
                   <p className="text-xs text-gray-500">
                     {formatDate(doc.createdAt)} · {formatFileSize(doc.size)}

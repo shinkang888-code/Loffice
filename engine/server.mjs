@@ -40,13 +40,46 @@ const MIME = {
   ".pdf": "application/pdf",
   ".epub": "application/epub+zip",
   ".xml": "application/xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".webp": "image/webp",
+  ".bmp": "image/bmp",
+  ".svg": "image/svg+xml",
+  ".ico": "image/x-icon",
+  ".md": "text/markdown",
+  ".json": "application/json",
+  ".zip": "application/zip",
+  ".7z": "application/x-7z-compressed",
+  ".hwp": "application/x-hwp",
+  ".hwpx": "application/hwp+zip",
 };
+
+const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".ico", ".svg"]);
+const TEXT_EXT = new Set([
+  ".txt", ".csv", ".md", ".json", ".xml", ".log", ".js", ".ts", ".tsx", ".jsx",
+  ".py", ".java", ".c", ".cpp", ".h", ".css", ".scss", ".yaml", ".yml", ".ini", ".bat", ".sh", ".rtf",
+]);
+const HTML_EXT = new Set([".html", ".htm"]);
+
+function detectPreviewType(ext) {
+  if (ext === ".pdf") return "pdf";
+  if (IMAGE_EXT.has(ext)) return "image";
+  if (TEXT_EXT.has(ext)) return "text";
+  if (HTML_EXT.has(ext)) return "html";
+  return "pdf";
+}
 
 const EDITABLE = new Set([
   ".odt", ".ods", ".odp", ".odg",
   ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
   ".rtf", ".txt", ".csv",
 ]);
+
+function getMime(ext) {
+  return MIME[ext] || "application/octet-stream";
+}
 
 const SUPPORTED = new Set(Object.keys(MIME));
 
@@ -136,10 +169,8 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "파일이 없습니다." });
 
-    const ext = path.extname(req.file.originalname).toLowerCase();
-    if (!SUPPORTED.has(ext)) {
-      return res.status(400).json({ error: `지원하지 않는 형식: ${ext}` });
-    }
+    const ext = path.extname(req.file.originalname).toLowerCase() || ".bin";
+    const previewType = detectPreviewType(ext);
 
     const docId = uuidv4();
     const outDir = path.join(OUTPUTS, docId);
@@ -148,15 +179,18 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
     const storedName = `original${ext}`;
     await fs.copyFile(req.file.path, path.join(outDir, storedName));
 
-    if (ext !== ".pdf") {
+    let hasPdf = false;
+    if (previewType === "pdf" && ext !== ".pdf") {
       try {
         const pdfPath = await convertToPdf(path.join(outDir, storedName), outDir);
         await fs.rename(pdfPath, path.join(outDir, "document.pdf"));
+        hasPdf = true;
       } catch (e) {
         console.warn("PDF preview failed:", e.message);
       }
-    } else {
+    } else if (ext === ".pdf") {
       await fs.copyFile(path.join(outDir, storedName), path.join(outDir, "document.pdf"));
+      hasPdf = true;
     }
 
     const editable = EDITABLE.has(ext);
@@ -165,20 +199,24 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
       name: req.file.originalname,
       ext,
       storedName,
-      mime: MIME[ext],
+      mime: getMime(ext),
       size: req.file.size,
       version: "1",
       editable,
+      previewType: hasPdf ? "pdf" : previewType,
+      hasPdf,
       createdAt: new Date().toISOString(),
       engine: "libreoffice",
     };
     await fs.writeFile(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2));
 
     const collabora = await checkCollabora();
+    const base = `http://localhost:${PORT}`;
     res.json({
       ...meta,
-      pdfUrl: `http://localhost:${PORT}/api/documents/${docId}/pdf`,
-      previewUrl: `http://localhost:${PORT}/api/documents/${docId}/pdf`,
+      pdfUrl: hasPdf ? `${base}/api/documents/${docId}/pdf` : null,
+      previewUrl: `${base}/api/documents/${docId}/preview`,
+      rawUrl: `${base}/api/documents/${docId}/raw`,
       editorUrl: editable && collabora ? buildEditorUrl(docId) : null,
       collabora,
     });
@@ -198,6 +236,53 @@ app.get("/api/documents/:id/editor-url", async (req, res) => {
     res.json({ editorUrl: buildEditorUrl(req.params.id), collabora: true });
   } catch {
     res.status(404).json({ error: "문서 없음" });
+  }
+});
+
+app.get("/api/documents/:id/raw", async (req, res) => {
+  try {
+    const metaPath = path.join(OUTPUTS, req.params.id, "meta.json");
+    const meta = JSON.parse(await fs.readFile(metaPath, "utf-8"));
+    const filePath = path.join(OUTPUTS, req.params.id, meta.storedName);
+    res.setHeader("Content-Type", meta.mime || "application/octet-stream");
+    res.setHeader("Content-Disposition", `inline; filename="${meta.name}"`);
+    res.send(await fs.readFile(filePath));
+  } catch {
+    res.status(404).json({ error: "파일 없음" });
+  }
+});
+
+app.get("/api/documents/:id/preview", async (req, res) => {
+  try {
+    const metaPath = path.join(OUTPUTS, req.params.id, "meta.json");
+    const meta = JSON.parse(await fs.readFile(metaPath, "utf-8"));
+    const base = `http://localhost:${PORT}`;
+    const type = meta.previewType || detectPreviewType(meta.ext);
+    const result = {
+      type,
+      fileName: meta.name,
+      fileSize: meta.size,
+      ext: meta.ext,
+      url: `${base}/api/documents/${req.params.id}/raw`,
+    };
+    if (type === "pdf" || meta.hasPdf) {
+      const pdfPath = path.join(OUTPUTS, req.params.id, "document.pdf");
+      try {
+        await fs.access(pdfPath);
+        result.type = "pdf";
+        result.url = `${base}/api/documents/${req.params.id}/pdf`;
+      } catch {
+        result.type = "info";
+        result.message = "PDF 변환에 실패했습니다. 원본 파일 정보를 표시합니다.";
+      }
+    }
+    if (type === "text" || type === "html") {
+      const filePath = path.join(OUTPUTS, req.params.id, meta.storedName);
+      result.content = await fs.readFile(filePath, "utf-8");
+    }
+    res.json(result);
+  } catch {
+    res.status(404).json({ error: "미리보기 없음" });
   }
 });
 

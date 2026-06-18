@@ -12,6 +12,9 @@ export interface ConvertResult {
   editorUrl?: string | null;
   editable?: boolean;
   collabora?: boolean;
+  previewType?: string;
+  hasPdf?: boolean;
+  rawUrl?: string;
 }
 
 export async function checkEngineHealth(): Promise<{
@@ -60,6 +63,9 @@ export async function convertAndSave(file: File): Promise<LofficeDocument> {
     editorUrl: result.editorUrl,
     editable: result.editable,
     collabora: result.collabora,
+    previewType: result.previewType,
+    hasPdf: result.hasPdf,
+    rawUrl: result.rawUrl,
     engine: result.engine,
   };
   await saveDocument(doc);
@@ -67,6 +73,5 @@ export async function convertAndSave(file: File): Promise<LofficeDocument> {
 }
 
 export function getDocumentRoute(doc: LofficeDocument): string {
-  if (doc.editable && doc.editorUrl) return `/editor?id=${doc.id}`;
-  return `/viewer?id=${doc.id}`;
+  return `/workspace?id=${doc.id}`;
 }

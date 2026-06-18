@@ -113,7 +113,7 @@ export default function HomePage() {
           </div>
           <div className="card divide-y">
             {recent.map((doc) => (
-              <Link key={doc.id} href={doc.editable && doc.editorUrl ? `/editor?id=${doc.id}` : `/viewer?id=${doc.id}`}
+              <Link key={doc.id} href={`/workspace?id=${doc.id}`}
                 className="flex items-center gap-4 px-4 py-3 transition hover:bg-loffice-teal/5">
                 <FileText className="h-5 w-5 shrink-0 text-loffice-teal" />
                 <div className="min-w-0 flex-1">

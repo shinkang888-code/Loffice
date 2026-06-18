@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "../styles/lo-shell.css";
 
 export const metadata: Metadata = {
   title: "Loffice — LibreOffice 기반 웹 오피스",
