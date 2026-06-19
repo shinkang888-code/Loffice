@@ -55,7 +55,7 @@ export function EditorCanvas({ doc }: EditorCanvasProps) {
         상단 툴바로 미리보기·저장·PDF·인쇄·확대/축소를 사용할 수 있습니다.
       </p>
       <p className="mt-2 text-xs text-gray-400">
-        실시간 편집: Docker Desktop → docker compose up -d
+        실시간 편집: Collabora 연결 시 자동 활성화 · 로컬은 docker compose up -d
       </p>
     </div>
   );

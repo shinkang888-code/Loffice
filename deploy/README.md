@@ -1,36 +1,53 @@
 # Loffice 배포 가이드
 
-## Vercel (프론트엔드) — 배포 완료
+## Vercel (프론트엔드)
 
 - **URL:** https://loffice-sigma.vercel.app
-- **GitHub:** https://github.com/shinkang888-code/Loffice
-
-환경 변수 (Vercel Dashboard → Settings → Environment Variables):
 
 | 변수 | 값 |
 |------|-----|
+| `NEXT_PUBLIC_ENGINE_URL` | `https://loffice-engine.onrender.com` |
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://mvtkfefmqmsvkhltzyqi.supabase.co` |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | lawbox anon key |
-| `NEXT_PUBLIC_ENGINE_URL` | Render 엔진 URL (아래) |
 
-## Render (LibreOffice 엔진)
+## Render (LibreOffice 엔진 + Collabora)
 
-1. [Render Blueprint 새로 만들기](https://dashboard.render.com/blueprint/new)
-2. 저장소: `shinkang888-code/Loffice`, 브랜치 `main`
-3. Blueprint 파일 경로: **`deploy/render.yaml`**
-4. 환경 변수 추가:
-   - `SUPABASE_SERVICE_ROLE_KEY` — lawbox service role key
-   - `WOPI_HOST` — `https://<your-engine>.onrender.com`
-5. 배포 후 Vercel의 `NEXT_PUBLIC_ENGINE_URL`을 Render URL로 업데이트
+Blueprint: **`deploy/render.yaml`** (2서비스)
 
-> Cursor Render MCP를 사용하려면 Cursor에서 Render 워크스페이스를 먼저 선택해야 합니다.
+| 서비스 | URL | 역할 |
+|--------|-----|------|
+| `loffice-engine` | https://loffice-engine.onrender.com | PDF 변환, WOPI, Supabase 동기화 |
+| `loffice-collabora` | https://loffice-collabora.onrender.com | 실시간 LibreOffice 편집 (없으면 미리보기 폴백) |
+
+### loffice-engine 환경 변수
+
+| 변수 | 설명 |
+|------|------|
+| `SUPABASE_SERVICE_ROLE_KEY` | lawbox service role — 문서 메타 DB 동기화 |
+| `COLLABORA_URL` | `https://loffice-collabora.onrender.com` |
+| `WOPI_HOST` | `https://loffice-engine.onrender.com` |
+
+### loffice-collabora 환경 변수
+
+| 변수 | 값 |
+|------|-----|
+| `domain` | `loffice-collabora\.onrender\.com` |
+| `aliasgroup1` | `https://loffice-sigma.vercel.app:443` |
+| `aliasgroup2` | `https://loffice-engine.onrender.com:443` |
+| `password` | Render 대시보드에서 설정 (sync: false) |
+
+## Cursor Render MCP
+
+1. Cursor → Settings → MCP → Render 플러그인 연결
+2. 워크스페이스: **My Workspace** (`tea-d6g55rsr85hc73b6b5vg`) 선택됨
+3. 이후 `list_services`, `update_environment_variables` 등 MCP 도구 사용 가능
 
 ## Supabase (lawbox)
 
 - 프로젝트: `mvtkfefmqmsvkhltzyqi`
 - 테이블: `public.loffice_documents`
 
-## Collabora (선택 — 실시간 편집)
+## 로컬 Collabora (선택)
 
 ```bash
 docker compose up -d

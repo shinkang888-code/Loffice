@@ -1,10 +1,13 @@
-# Loffice Engine — Render Web Service (Docker + LibreOffice)
+# Loffice — Production Render Blueprint
 services:
+  # LibreOffice 변환 + WOPI 호스트
   - type: web
     name: loffice-engine
     runtime: docker
     plan: free
     region: singapore
+    repo: https://github.com/shinkang888-code/Loffice
+    branch: main
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /health
@@ -15,9 +18,36 @@ services:
         value: /usr/bin/soffice
       - key: WOPI_HOST
         value: https://loffice-engine.onrender.com
+      - key: COLLABORA_URL
+        value: https://loffice-collabora.onrender.com
       - key: NEXT_PUBLIC_SUPABASE_URL
         value: https://mvtkfefmqmsvkhltzyqi.supabase.co
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
-      - key: COLLABORA_URL
+
+  # Collabora Online — 실시간 LibreOffice 편집 (없으면 미리보기 폴백)
+  - type: web
+    name: loffice-collabora
+    runtime: docker
+    plan: starter
+    region: singapore
+    repo: https://github.com/shinkang888-code/Loffice
+    branch: main
+    dockerfilePath: ./collabora/Dockerfile
+    dockerContext: ./collabora
+    healthCheckPath: /hosting/discovery
+    envVars:
+      - key: domain
+        value: loffice-collabora\.onrender\.com
+      - key: aliasgroup1
+        value: https://loffice-sigma.vercel.app:443
+      - key: aliasgroup2
+        value: https://loffice-engine.onrender.com:443
+      - key: username
+        value: admin
+      - key: password
         sync: false
+      - key: dictionaries
+        value: en_US ko_KR
+      - key: extra_params
+        value: --o:ssl.enable=false --o:ssl.termination=true --o:welcome.enable=false --o:user_interface.use_integration_theme=false
