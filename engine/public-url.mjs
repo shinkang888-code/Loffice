@@ -1,3 +1,7 @@
+import { fixFilename } from "./filename.mjs";
+
+export { fixFilename };
+
 /** Render/Vercel 프로덕션에서 공개 API 베이스 URL */
 export function getPublicBase(req) {
   const fromEnv =
@@ -23,15 +27,4 @@ export function contentDisposition(filename, inline = true) {
   const ascii = filename.replace(/[^\x20-\x7E]/g, "_");
   const encoded = encodeURIComponent(filename);
   return `${mode}; filename="${ascii}"; filename*=UTF-8''${encoded}`;
-}
-
-/** multer latin1 → UTF-8 파일명 복원 */
-export function fixFilename(name) {
-  if (!name) return "document";
-  if (/[\uAC00-\uD7A3\u3040-\u30FF\u4E00-\u9FFF]/.test(name)) return name;
-  try {
-    const decoded = Buffer.from(name, "latin1").toString("utf8");
-    if (decoded && !decoded.includes("\uFFFD")) return decoded;
-  } catch { /* keep original */ }
-  return name;
 }

@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Upload, FileUp, Loader2 } from "lucide-react";
-import { convertAndSave, getDocumentRoute } from "@/lib/engine";
+import { convertAndSave, getDocumentRoute, wakeEngine } from "@/lib/engine";
 import { cn } from "@/lib/utils";
 
 interface FileDropZoneProps {
@@ -14,12 +14,16 @@ export function FileDropZone({ className }: FileDropZoneProps) {
   const router = useRouter();
   const [dragging, setDragging] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingMsg, setLoadingMsg] = useState("LibreOffice 변환 중...");
   const [error, setError] = useState<string | null>(null);
 
   const handleFile = useCallback(async (file: File) => {
     setLoading(true);
     setError(null);
+    setLoadingMsg("Render 엔진 연결 중...");
     try {
+      await wakeEngine();
+      setLoadingMsg("LibreOffice 변환 중...");
       const doc = await convertAndSave(file);
       router.push(getDocumentRoute(doc));
     } catch (e) {
@@ -62,7 +66,7 @@ export function FileDropZone({ className }: FileDropZoneProps) {
         {loading ? (
           <>
             <Loader2 className="h-12 w-12 animate-spin text-loffice-teal" />
-            <p className="text-lg font-semibold text-loffice-teal">LibreOffice 변환 중...</p>
+            <p className="text-lg font-semibold text-loffice-teal">{loadingMsg}</p>
             <p className="text-sm text-gray-500">문서를 PDF로 렌더링하고 있습니다</p>
           </>
         ) : (

@@ -202,8 +202,19 @@ app.get("/health", async (_req, res) => {
     collabora,
     collaboraUrl: COLLABORA_URL,
     wopiHost: WOPI_HOST,
-    version: "1.1.0",
+    version: "1.2.0",
+    locale: process.env.LANG || "ko_KR.UTF-8",
   });
+});
+
+/** Render cold start 예열 — LibreOffice 프로세스 워밍 */
+app.get("/api/warmup", async (_req, res) => {
+  try {
+    await runLibreOffice(["--headless", "--version"]);
+    res.json({ ok: true, warmed: true });
+  } catch (e) {
+    res.status(503).json({ ok: false, error: e.message });
+  }
 });
 
 app.get("/api/formats", (_req, res) => {
@@ -214,7 +225,7 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "파일이 없습니다." });
 
-    const originalName = fixFilename(req.file.originalname);
+    const originalName = fixFilename(req.body?.filename || req.file.originalname);
     const ext = path.extname(originalName).toLowerCase() || ".bin";
     const previewType = detectPreviewType(ext);
 
@@ -312,7 +323,7 @@ app.get("/api/documents/:id/preview", async (req, res) => {
     const docBase = `/api/documents/${req.params.id}`;
     const result = {
       type,
-      fileName: meta.name,
+      fileName: fixFilename(meta.name),
       fileSize: meta.size,
       ext: meta.ext,
       url: apiUrl(req, `${docBase}/raw`),

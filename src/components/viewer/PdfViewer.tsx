@@ -89,7 +89,7 @@ export const PdfViewer = forwardRef<PdfViewerHandle, PdfViewerProps>(function Pd
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex h-full min-h-0 flex-1 flex-col">
       <div className="flex flex-wrap items-center gap-2 border-b border-gray-200 bg-white px-4 py-2">
         <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page <= 1}
           className="rounded p-1.5 hover:bg-gray-100 disabled:opacity-40">

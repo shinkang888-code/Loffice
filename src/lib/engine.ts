@@ -1,6 +1,9 @@
 import { ENGINE_URL } from "./utils";
 import { normalizeEngineUrl } from "./engine-url";
+import { fixFilename } from "./filename";
 import { saveDocument, type LofficeDocument } from "./storage";
+
+const ENGINE_TIMEOUT_MS = 120_000;
 
 export interface ConvertResult {
   id: string;
@@ -18,13 +21,35 @@ export interface ConvertResult {
   rawUrl?: string;
 }
 
+async function engineFetch(path: string, init?: RequestInit): Promise<Response> {
+  return fetch(`${ENGINE_URL}${path}`, {
+    ...init,
+    signal: init?.signal ?? AbortSignal.timeout(ENGINE_TIMEOUT_MS),
+  });
+}
+
+/** Render cold start 예열 (최대 3회 재시도) */
+export async function wakeEngine(): Promise<boolean> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await engineFetch("/health");
+      if (!res.ok) continue;
+      await engineFetch("/api/warmup").catch(() => null);
+      return true;
+    } catch {
+      await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
+    }
+  }
+  return false;
+}
+
 export async function checkEngineHealth(): Promise<{
   ok: boolean;
   libreOffice: string | null;
   collabora: boolean;
 }> {
   try {
-    const res = await fetch(`${ENGINE_URL}/health`);
+    const res = await engineFetch("/health");
     const data = await res.json();
     return {
       ok: data.status === "ok",
@@ -37,17 +62,20 @@ export async function checkEngineHealth(): Promise<{
 }
 
 export async function getEditorUrl(docId: string): Promise<string | null> {
-  const res = await fetch(`${ENGINE_URL}/api/documents/${docId}/editor-url`);
+  const res = await engineFetch(`/api/documents/${docId}/editor-url`);
   if (!res.ok) return null;
   const data = await res.json();
   return data.editorUrl ?? null;
 }
 
 export async function convertAndSave(file: File): Promise<LofficeDocument> {
+  await wakeEngine();
+
   const form = new FormData();
   form.append("file", file);
+  form.append("filename", file.name);
 
-  const res = await fetch(`${ENGINE_URL}/api/convert`, { method: "POST", body: form });
+  const res = await engineFetch("/api/convert", { method: "POST", body: form });
   if (!res.ok) {
     const err = await res.json().catch(() => ({ error: "변환 실패" }));
     throw new Error(err.error || "변환 실패");
@@ -56,7 +84,7 @@ export async function convertAndSave(file: File): Promise<LofficeDocument> {
   const result: ConvertResult = await res.json();
   const doc: LofficeDocument = {
     id: result.id,
-    name: result.name,
+    name: fixFilename(result.name),
     ext: result.ext,
     size: file.size,
     createdAt: result.createdAt,

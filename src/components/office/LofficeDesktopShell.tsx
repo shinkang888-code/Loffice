@@ -10,13 +10,11 @@ import { MODULE_TITLES, detectModule, type OfficeModule } from "@/lib/lo-menus";
 interface LofficeDesktopShellProps {
   fileName: string;
   ext: string;
-  children?: ReactNode;
   previewPanel: ReactNode;
-  editorPanel?: ReactNode;
 }
 
 export function LofficeDesktopShell({
-  fileName, ext, children, previewPanel, editorPanel,
+  fileName, ext, previewPanel,
 }: LofficeDesktopShellProps) {
   const mod: OfficeModule = detectModule(ext);
   const title = `${fileName} — ${MODULE_TITLES[mod]}`;
@@ -30,12 +28,9 @@ export function LofficeDesktopShell({
         <LoLeftSidebar />
         <div className="lo-canvas-area flex flex-1 flex-col">
           <LoRuler />
-          <div className="lo-canvas-inner flex-1">
-            <div className="lo-doc-page flex flex-1 flex-col" style={{ width: "100%", maxWidth: "100%", minHeight: 400 }}>
-              {editorPanel || children}
-            </div>
+          <div className="lo-canvas-inner lo-canvas-inner--full">
+            {previewPanel}
           </div>
-          {previewPanel}
         </div>
         <LoRightSidebar />
       </div>

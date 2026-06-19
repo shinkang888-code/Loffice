@@ -1,5 +1,6 @@
 import { ENGINE_URL } from "./utils";
 import { normalizeEngineUrl } from "./engine-url";
+import { fixFilename } from "./filename";
 import type { LofficeDocument } from "./storage";
 
 export type PreviewType = "pdf" | "image" | "text" | "html" | "info";
@@ -33,7 +34,7 @@ export function detectClientPreviewType(ext: string): PreviewType {
 export async function fetchPreviewInfo(doc: LofficeDocument): Promise<PreviewInfo> {
   const base: PreviewInfo = {
     type: (doc.previewType as PreviewType) || detectClientPreviewType(doc.ext),
-    fileName: doc.name,
+    fileName: fixFilename(doc.name),
     fileSize: doc.size,
     ext: doc.ext,
   };
@@ -45,6 +46,7 @@ export async function fetchPreviewInfo(doc: LofficeDocument): Promise<PreviewInf
       return {
         ...base,
         ...data,
+        fileName: fixFilename(data.fileName || doc.name),
         url: normalizeEngineUrl(data.url),
       };
     }

@@ -7,6 +7,7 @@ dist/
 .DS_Store
 Thumbs.db
 .loffice-cache/
+supabase/.temp/
 assets/libreoffice-ui/
 .env.local
 .vercel

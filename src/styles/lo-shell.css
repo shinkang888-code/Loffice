@@ -147,11 +147,16 @@
 
 .lo-canvas-inner {
   flex: 1;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 16px;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.lo-canvas-inner--full {
+  padding: 0;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
 .lo-doc-page {
@@ -196,12 +201,26 @@
 }
 
 .lo-preview-panel {
-  border-top: 2px solid var(--lo-border);
-  background: #e8e8e8;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 180px;
-  max-height: 45vh;
+  min-height: 0;
+  background: #525659;
+}
+
+.lo-preview-panel--full {
+  border-top: none;
+  max-height: none;
+  width: 100%;
+}
+
+.lo-pdf-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  background: white;
 }
 
 .lo-preview-header {
@@ -220,9 +239,10 @@
   overflow: auto;
   background: #525659;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
 }
 
 .lo-titlebar {

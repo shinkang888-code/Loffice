@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Header, EngineBadge } from "@/components/layout/Header";
 import { FileDropZone } from "@/components/home/FileDropZone";
-import { checkEngineHealth } from "@/lib/engine";
+import { checkEngineHealth, wakeEngine } from "@/lib/engine";
 import { listDocuments } from "@/lib/storage";
 import { SUPPORTED_FORMATS, formatDate } from "@/lib/utils";
 import type { LofficeDocument } from "@/lib/storage";
@@ -32,7 +32,7 @@ export default function HomePage() {
   const [recent, setRecent] = useState<LofficeDocument[]>([]);
 
   useEffect(() => {
-    checkEngineHealth().then((h) => {
+    wakeEngine().then(() => checkEngineHealth()).then((h) => {
       setEngineOk(h.ok);
       setCollaboraOk(h.collabora);
     });
