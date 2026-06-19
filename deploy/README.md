@@ -36,21 +36,23 @@ Blueprint: **`deploy/render.yaml`** (2서비스)
 | `aliasgroup2` | `https://loffice-engine.onrender.com:443` |
 | `password` | Render 대시보드에서 설정 (sync: false) |
 
-## Cursor Render MCP
+## Collabora (실시간 편집)
 
-1. Cursor → Settings → MCP → Render 플러그인 연결
-2. 워크스페이스: **My Workspace** (`tea-d6g55rsr85hc73b6b5vg`) 선택됨
-3. 이후 `list_services`, `update_environment_variables` 등 MCP 도구 사용 가능
+> Render Docker는 Linux capabilities 제한으로 Collabora CODE 실행 불가.  
+> 자세한 내용: **`deploy/COLLABORA.md`**
 
-## Supabase (lawbox)
-
-- 프로젝트: `mvtkfefmqmsvkhltzyqi`
-- 테이블: `public.loffice_documents`
-
-## 로컬 Collabora (선택)
-
+로컬:
 ```bash
 docker compose up -d
 ```
 
-Collabora 없을 때는 PDF/텍스트/이미지 미리보기 + 툴바 폴백으로 동작합니다.
+프로덕션 기본: Collabora 없이 미리보기/폴백 (`/health` → `"collabora": false`)
+
+## Cursor Render MCP
+
+1. **CLI 로그인** (완료): `render login` → My Workspace
+2. **MCP 워크스페이스** (완료): `tea-d6g55rsr85hc73b6b5vg`
+3. MCP 도구가 `unauthorized`이면: Cursor **Settings → MCP → Render** 에서 API Key 연결  
+   (Dashboard → Account Settings → API Keys → `rnd_...` 토큰)
+
+사용 가능 도구: `list_services`, `update_environment_variables`, `create_web_service` 등
