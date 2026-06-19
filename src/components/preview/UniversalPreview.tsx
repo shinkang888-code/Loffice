@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FileText, Download, Loader2 } from "lucide-react";
-import { PdfViewer } from "@/components/viewer/PdfViewer";
+import { PdfViewer, type PdfViewerHandle } from "@/components/viewer/PdfViewer";
+import { useLoCommands } from "@/context/LoCommandContext";
 import { fetchPreviewInfo, type PreviewInfo } from "@/lib/preview";
 import type { LofficeDocument } from "@/lib/storage";
 import { formatFileSize } from "@/lib/utils";
@@ -12,16 +13,24 @@ interface UniversalPreviewProps {
 }
 
 export function UniversalPreview({ doc }: UniversalPreviewProps) {
+  const { registerPreviewControls } = useLoCommands();
+  const pdfRef = useRef<PdfViewerHandle>(null);
   const [preview, setPreview] = useState<PreviewInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    fetchPreviewInfo(doc).then((p) => {
-      setPreview(p);
-      setLoading(false);
-    });
+    fetchPreviewInfo(doc).then((p) => { setPreview(p); setLoading(false); });
   }, [doc]);
+
+  useEffect(() => {
+    registerPreviewControls({
+      zoomIn: () => pdfRef.current?.zoomIn(),
+      zoomOut: () => pdfRef.current?.zoomOut(),
+      print: () => pdfRef.current?.print() ?? window.print(),
+    });
+    return () => registerPreviewControls(null);
+  }, [registerPreviewControls, preview?.type]);
 
   return (
     <div className="lo-preview-panel">
@@ -37,11 +46,11 @@ export function UniversalPreview({ doc }: UniversalPreviewProps) {
         {loading ? (
           <div className="flex flex-col items-center justify-center gap-2 py-12 text-white">
             <Loader2 className="h-8 w-8 animate-spin" />
-            <span className="text-sm">미리보기 생성 중...</span>
+            <span className="text-sm">LibreOffice 엔진 미리보기 생성 중...</span>
           </div>
         ) : preview?.type === "pdf" && preview.url ? (
-          <div className="w-full max-w-3xl bg-white shadow-lg">
-            <PdfViewer url={preview.url} fileName={doc.name} />
+          <div className="w-full max-w-4xl bg-white shadow-lg">
+            <PdfViewer ref={pdfRef} url={preview.url} fileName={doc.name} />
           </div>
         ) : preview?.type === "image" && preview.url ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -59,7 +68,7 @@ export function UniversalPreview({ doc }: UniversalPreviewProps) {
                 {formatFileSize(doc.size)} · {doc.ext.toUpperCase().replace(".", "")}
               </p>
               <p className="mt-3 max-w-sm text-xs text-gray-500">
-                {preview?.message || "이 형식은 LibreOffice 엔진으로 변환 미리보기를 시도했습니다."}
+                {preview?.message || "미리보기 패널 — 원본 다운로드 가능"}
               </p>
             </div>
             {preview?.url && (

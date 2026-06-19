@@ -2,10 +2,10 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import Link from "next/link";
 import { LofficeDesktopShell } from "@/components/office/LofficeDesktopShell";
 import { EditorCanvas } from "@/components/editor/EditorCanvas";
 import { UniversalPreview } from "@/components/preview/UniversalPreview";
+import { LoCommandProvider } from "@/context/LoCommandContext";
 import { getDocument, type LofficeDocument } from "@/lib/storage";
 
 function WorkspaceContent() {
@@ -16,10 +16,7 @@ function WorkspaceContent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!id) {
-      router.replace("/");
-      return;
-    }
+    if (!id) { router.replace("/"); return; }
     getDocument(id).then((d) => {
       if (!d) router.replace("/");
       setDoc(d);
@@ -36,14 +33,14 @@ function WorkspaceContent() {
   }
 
   return (
-    <LofficeDesktopShell
-      fileName={doc.name}
-      ext={doc.ext}
-      previewPanel={<UniversalPreview doc={doc} />}
-      editorPanel={<EditorCanvas doc={doc} />}
-    >
-      <EditorCanvas doc={doc} />
-    </LofficeDesktopShell>
+    <LoCommandProvider doc={doc}>
+      <LofficeDesktopShell
+        fileName={doc.name}
+        ext={doc.ext}
+        previewPanel={<UniversalPreview doc={doc} />}
+        editorPanel={<EditorCanvas doc={doc} />}
+      />
+    </LoCommandProvider>
   );
 }
 

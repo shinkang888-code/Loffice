@@ -7,6 +7,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";
 import { createWopiRouter } from "./wopi.mjs";
+import { syncToSupabase } from "./supabase.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -14,12 +15,14 @@ const CACHE = path.join(ROOT, ".loffice-cache");
 const UPLOADS = path.join(CACHE, "uploads");
 const OUTPUTS = path.join(CACHE, "outputs");
 
-const PORT = Number(process.env.LOFFICE_ENGINE_PORT || 9982);
+const PORT = Number(process.env.PORT || process.env.LOFFICE_ENGINE_PORT || 9982);
 const WOPI_HOST = process.env.WOPI_HOST || `http://host.docker.internal:${PORT}`;
 const COLLABORA_URL = process.env.COLLABORA_URL || "http://localhost:9980";
 const LO_PATH =
   process.env.LIBREOFFICE_PATH ||
-  "C:\\Program Files\\LibreOffice\\program\\soffice.exe";
+  (process.platform === "win32"
+    ? "C:\\Program Files\\LibreOffice\\program\\soffice.exe"
+    : "soffice");
 
 const MIME = {
   ".odt": "application/vnd.oasis.opendocument.text",
@@ -133,6 +136,22 @@ async function convertToPdf(inputPath, outDir) {
   }
 }
 
+async function checkLibreOffice() {
+  try {
+    if (process.platform === "win32") {
+      await fs.access(LO_PATH);
+      return LO_PATH;
+    }
+    await new Promise((resolve, reject) => {
+      const p = spawn(LO_PATH, ["--version"]);
+      p.on("close", (code) => (code === 0 ? resolve() : reject()));
+      p.on("error", reject);
+    });
+    return LO_PATH;
+  } catch {
+    return null;
+  }
+}
 async function checkCollabora() {
   try {
     const res = await fetch(`${COLLABORA_URL}/hosting/discovery`, { signal: AbortSignal.timeout(3000) });
@@ -148,12 +167,12 @@ function buildEditorUrl(docId) {
 }
 
 app.get("/health", async (_req, res) => {
-  const loExists = await fs.access(LO_PATH).then(() => true).catch(() => false);
+  const loPath = await checkLibreOffice();
   const collabora = await checkCollabora();
   res.json({
     status: "ok",
     engine: "loffice-libreoffice",
-    libreOffice: loExists ? LO_PATH : null,
+    libreOffice: loPath,
     collabora,
     collaboraUrl: COLLABORA_URL,
     wopiHost: WOPI_HOST,
@@ -209,6 +228,7 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
       engine: "libreoffice",
     };
     await fs.writeFile(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2));
+    await syncToSupabase(meta);
 
     const collabora = await checkCollabora();
     const base = `http://localhost:${PORT}`;

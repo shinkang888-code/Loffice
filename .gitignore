@@ -8,3 +8,4 @@ dist/
 Thumbs.db
 .loffice-cache/
 assets/libreoffice-ui/
+.env.local
