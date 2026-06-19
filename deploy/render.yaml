@@ -1,28 +1,23 @@
-# Loffice Engine — Render Web Service
+# Loffice Engine — Render Web Service (Docker + LibreOffice)
 services:
   - type: web
     name: loffice-engine
-    runtime: node
+    runtime: docker
     plan: free
-    region: oregon
-    buildCommand: >
-      apt-get update &&
-      apt-get install -y libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-draw --no-install-recommends &&
-      npm install
-    startCommand: node engine/server.mjs
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
     envVars:
-      - key: LOFFICE_ENGINE_PORT
-        value: "10000"
       - key: NODE_ENV
         value: production
       - key: LIBREOFFICE_PATH
         value: /usr/bin/soffice
       - key: WOPI_HOST
+        value: https://loffice-engine.onrender.com
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: https://mvtkfefmqmsvkhltzyqi.supabase.co
+      - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
       - key: COLLABORA_URL
         sync: false
-      - key: NEXT_PUBLIC_SUPABASE_URL
-        sync: false
-      - key: SUPABASE_SERVICE_ROLE_KEY
-        sync: false
-    healthCheckPath: /health
