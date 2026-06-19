@@ -6,15 +6,18 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   async rewrites() {
-    const engine =
-      process.env.NEXT_PUBLIC_ENGINE_URL ||
+    const backend =
+      process.env.ENGINE_BACKEND_URL ||
+      (process.env.NEXT_PUBLIC_ENGINE_URL?.startsWith("http")
+        ? process.env.NEXT_PUBLIC_ENGINE_URL
+        : null) ||
       (process.env.NODE_ENV === "production"
         ? "https://loffice-engine.onrender.com"
         : "http://localhost:9982");
     return [
       {
         source: "/engine/:path*",
-        destination: `${engine}/:path*`,
+        destination: `${backend.replace(/\/$/, "")}/:path*`,
       },
     ];
   },

@@ -1,14 +1,27 @@
+import iconManifest from "@/data/icon-manifest.json";
+
+const ICON_MAP: Record<string, string> = iconManifest as Record<string, string>;
+const FALLBACK_ICON = "lc_standardfilter";
+
 /**
- * LibreOffice .uno 명령 → Colibre 아이콘 매핑
- * cmd/lc_{name}.svg 파일명 규칙
+ * LibreOffice .uno 명령 → Colibre 아이콘 (manifest 우선)
  */
 export function unoToIcon(uno: string): string {
+  const key = uno.toLowerCase();
+  if (ICON_MAP[key]) return ICON_MAP[key];
   const name = uno.replace(".uno:", "").toLowerCase();
   return `lc_${name}`;
 }
 
 export function iconUrl(icon: string): string {
-  return `/icons/lo/${icon}.svg`;
+  const name = icon.endsWith(".svg") ? icon.replace(".svg", "") : icon;
+  return `/icons/lo/${name}.svg`;
+}
+
+export function iconUrlWithFallback(uno: string): string {
+  const icon = unoToIcon(uno);
+  if (ICON_MAP[uno.toLowerCase()]) return iconUrl(icon);
+  return iconUrl(FALLBACK_ICON);
 }
 
 /** Collabora Online iframe에 UNO 명령 전송 */

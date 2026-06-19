@@ -1,16 +1,17 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { DRAW_MENUS, STANDARD_TOOLBAR, FORMAT_TOOLBAR, type ToolbarItem, detectModule } from "@/lib/lo-menus";
+import { STANDARD_TOOLBAR, FORMAT_TOOLBAR, type ToolbarItem, detectModule } from "@/lib/lo-menus";
+import { getCuratedMenus } from "@/lib/lo-curated-menus";
 import { useLoCommands } from "@/context/LoCommandContext";
-import { iconUrl, unoToIcon } from "@/lib/lo-command-bridge";
-import loUi from "@/data/libreoffice-ui.json";
+import { iconUrl, iconUrlWithFallback } from "@/lib/lo-command-bridge";
 
-function LoIcon({ name, alt }: { name: string; alt: string }) {
+function LoIcon({ name, alt, uno }: { name?: string; alt: string; uno?: string }) {
+  const src = uno ? iconUrlWithFallback(uno) : iconUrl(name || "lc_standardfilter");
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={iconUrl(name)} alt={alt} width={16} height={16}
-      onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0.3"; }} />
+    <img src={src} alt={alt} width={16} height={16}
+      onError={(e) => { (e.target as HTMLImageElement).src = iconUrl("lc_standardfilter"); }} />
   );
 }
 
@@ -23,10 +24,7 @@ export function LoMenuBar({ ext = ".odt" }: LoMenuBarProps) {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const mod = detectModule(ext);
-  const uiData = loUi[mod as keyof typeof loUi] || loUi.swriter;
-  const menus = uiData?.menubar?.length ? uiData.menubar : DRAW_MENUS.map((label) => ({
-    id: label, label, items: [],
-  }));
+  const menus = getCuratedMenus(mod);
 
   useEffect(() => {
     const close = (e: MouseEvent) => {
@@ -55,7 +53,7 @@ export function LoMenuBar({ ext = ".odt" }: LoMenuBarProps) {
                   className="flex w-full items-center gap-2 px-3 py-1 text-left text-[12px] hover:bg-[#cce8ff]"
                   onClick={() => { executeUno(item.command); setOpenMenu(null); }}
                 >
-                  <LoIcon name={unoToIcon(item.command)} alt={item.label} />
+                  <LoIcon uno={item.command} alt={item.label} />
                   {item.label}
                 </button>
               ))}

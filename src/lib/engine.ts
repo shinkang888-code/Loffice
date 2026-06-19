@@ -1,4 +1,5 @@
 import { ENGINE_URL } from "./utils";
+import { normalizeEngineUrl } from "./engine-url";
 import { saveDocument, type LofficeDocument } from "./storage";
 
 export interface ConvertResult {
@@ -59,13 +60,13 @@ export async function convertAndSave(file: File): Promise<LofficeDocument> {
     ext: result.ext,
     size: file.size,
     createdAt: result.createdAt,
-    pdfUrl: result.pdfUrl,
+    pdfUrl: normalizeEngineUrl(result.pdfUrl) || "",
     editorUrl: result.editorUrl,
     editable: result.editable,
     collabora: result.collabora,
     previewType: result.previewType,
     hasPdf: result.hasPdf,
-    rawUrl: result.rawUrl,
+    rawUrl: normalizeEngineUrl(result.rawUrl),
     engine: result.engine,
   };
   await saveDocument(doc);

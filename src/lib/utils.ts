@@ -1,11 +1,13 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { clientEngineUrl } from "./engine-url";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const ENGINE_URL = process.env.NEXT_PUBLIC_ENGINE_URL || "/engine";
+/** API 호출용 엔진 URL (브라우저: /engine 프록시) */
+export const ENGINE_URL = clientEngineUrl();
 
 export const SUPPORTED_FORMATS = [
   "ODT", "ODS", "ODP", "DOC", "DOCX", "XLS", "XLSX",

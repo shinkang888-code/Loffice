@@ -9,3 +9,4 @@ Thumbs.db
 .loffice-cache/
 assets/libreoffice-ui/
 .env.local
+.vercel

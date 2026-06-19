@@ -1,4 +1,5 @@
 import { ENGINE_URL } from "./utils";
+import { normalizeEngineUrl } from "./engine-url";
 import type { LofficeDocument } from "./storage";
 
 export type PreviewType = "pdf" | "image" | "text" | "html" | "info";
@@ -41,7 +42,11 @@ export async function fetchPreviewInfo(doc: LofficeDocument): Promise<PreviewInf
     const res = await fetch(`${ENGINE_URL}/api/documents/${doc.id}/preview`);
     if (res.ok) {
       const data = await res.json();
-      return { ...base, ...data };
+      return {
+        ...base,
+        ...data,
+        url: normalizeEngineUrl(data.url),
+      };
     }
   } catch { /* fallback below */ }
 

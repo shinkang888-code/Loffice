@@ -8,6 +8,10 @@ import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";
 import { createWopiRouter } from "./wopi.mjs";
 import { syncToSupabase } from "./supabase.mjs";
+import { getPublicBase, apiUrl, contentDisposition, fixFilename } from "./public-url.mjs";
+import {
+  uploadToStorage, downloadFromStorage, storageKey,
+} from "./storage-backend.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -94,9 +98,31 @@ const upload = multer({
   limits: { fileSize: 100 * 1024 * 1024 },
 });
 
+const FRONTEND_URL = process.env.FRONTEND_URL || "https://loffice-sigma.vercel.app";
+
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [FRONTEND_URL, "http://localhost:3001", "http://localhost:3000"],
+  credentials: true,
+}));
 app.use("/wopi", createWopiRouter(OUTPUTS));
+
+async function loadMeta(docId) {
+  const metaPath = path.join(OUTPUTS, docId, "meta.json");
+  return JSON.parse(await fs.readFile(metaPath, "utf-8"));
+}
+
+async function ensureLocalFile(docId, fileName, storageName) {
+  const localPath = path.join(OUTPUTS, docId, fileName);
+  try {
+    await fs.access(localPath);
+    return localPath;
+  } catch {
+    const ok = await downloadFromStorage(storageKey(docId, storageName), localPath);
+    if (ok) return localPath;
+    throw new Error("파일 없음");
+  }
+}
 
 async function ensureDirs() {
   await fs.mkdir(UPLOADS, { recursive: true });
@@ -188,7 +214,8 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: "파일이 없습니다." });
 
-    const ext = path.extname(req.file.originalname).toLowerCase() || ".bin";
+    const originalName = fixFilename(req.file.originalname);
+    const ext = path.extname(originalName).toLowerCase() || ".bin";
     const previewType = detectPreviewType(ext);
 
     const docId = uuidv4();
@@ -196,26 +223,32 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
     await fs.mkdir(outDir, { recursive: true });
 
     const storedName = `original${ext}`;
-    await fs.copyFile(req.file.path, path.join(outDir, storedName));
+    const storedPath = path.join(outDir, storedName);
+    await fs.copyFile(req.file.path, storedPath);
 
     let hasPdf = false;
     if (previewType === "pdf" && ext !== ".pdf") {
       try {
-        const pdfPath = await convertToPdf(path.join(outDir, storedName), outDir);
+        const pdfPath = await convertToPdf(storedPath, outDir);
         await fs.rename(pdfPath, path.join(outDir, "document.pdf"));
         hasPdf = true;
       } catch (e) {
         console.warn("PDF preview failed:", e.message);
       }
     } else if (ext === ".pdf") {
-      await fs.copyFile(path.join(outDir, storedName), path.join(outDir, "document.pdf"));
+      await fs.copyFile(storedPath, path.join(outDir, "document.pdf"));
       hasPdf = true;
+    }
+
+    await uploadToStorage(storageKey(docId, storedName), storedPath, getMime(ext));
+    if (hasPdf) {
+      await uploadToStorage(storageKey(docId, "document.pdf"), path.join(outDir, "document.pdf"), "application/pdf");
     }
 
     const editable = EDITABLE.has(ext);
     const meta = {
       id: docId,
-      name: req.file.originalname,
+      name: originalName,
       ext,
       storedName,
       mime: getMime(ext),
@@ -231,12 +264,12 @@ app.post("/api/convert", upload.single("file"), async (req, res) => {
     await syncToSupabase(meta);
 
     const collabora = await checkCollabora();
-    const base = `http://localhost:${PORT}`;
+    const docBase = `/api/documents/${docId}`;
     res.json({
       ...meta,
-      pdfUrl: hasPdf ? `${base}/api/documents/${docId}/pdf` : null,
-      previewUrl: `${base}/api/documents/${docId}/preview`,
-      rawUrl: `${base}/api/documents/${docId}/raw`,
+      pdfUrl: hasPdf ? apiUrl(req, `${docBase}/pdf`) : null,
+      previewUrl: apiUrl(req, `${docBase}/preview`),
+      rawUrl: apiUrl(req, `${docBase}/raw`),
       editorUrl: editable && collabora ? buildEditorUrl(docId) : null,
       collabora,
     });
@@ -261,11 +294,11 @@ app.get("/api/documents/:id/editor-url", async (req, res) => {
 
 app.get("/api/documents/:id/raw", async (req, res) => {
   try {
-    const metaPath = path.join(OUTPUTS, req.params.id, "meta.json");
-    const meta = JSON.parse(await fs.readFile(metaPath, "utf-8"));
-    const filePath = path.join(OUTPUTS, req.params.id, meta.storedName);
+    const meta = await loadMeta(req.params.id);
+    const filePath = await ensureLocalFile(req.params.id, meta.storedName, meta.storedName);
     res.setHeader("Content-Type", meta.mime || "application/octet-stream");
-    res.setHeader("Content-Disposition", `inline; filename="${meta.name}"`);
+    res.setHeader("Content-Disposition", contentDisposition(meta.name, true));
+    res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
     res.send(await fs.readFile(filePath));
   } catch {
     res.status(404).json({ error: "파일 없음" });
@@ -274,30 +307,28 @@ app.get("/api/documents/:id/raw", async (req, res) => {
 
 app.get("/api/documents/:id/preview", async (req, res) => {
   try {
-    const metaPath = path.join(OUTPUTS, req.params.id, "meta.json");
-    const meta = JSON.parse(await fs.readFile(metaPath, "utf-8"));
-    const base = `http://localhost:${PORT}`;
+    const meta = await loadMeta(req.params.id);
     const type = meta.previewType || detectPreviewType(meta.ext);
+    const docBase = `/api/documents/${req.params.id}`;
     const result = {
       type,
       fileName: meta.name,
       fileSize: meta.size,
       ext: meta.ext,
-      url: `${base}/api/documents/${req.params.id}/raw`,
+      url: apiUrl(req, `${docBase}/raw`),
     };
     if (type === "pdf" || meta.hasPdf) {
-      const pdfPath = path.join(OUTPUTS, req.params.id, "document.pdf");
       try {
-        await fs.access(pdfPath);
+        await ensureLocalFile(req.params.id, "document.pdf", "document.pdf");
         result.type = "pdf";
-        result.url = `${base}/api/documents/${req.params.id}/pdf`;
+        result.url = apiUrl(req, `${docBase}/pdf`);
       } catch {
         result.type = "info";
         result.message = "PDF 변환에 실패했습니다. 원본 파일 정보를 표시합니다.";
       }
     }
     if (type === "text" || type === "html") {
-      const filePath = path.join(OUTPUTS, req.params.id, meta.storedName);
+      const filePath = await ensureLocalFile(req.params.id, meta.storedName, meta.storedName);
       result.content = await fs.readFile(filePath, "utf-8");
     }
     res.json(result);
@@ -307,11 +338,11 @@ app.get("/api/documents/:id/preview", async (req, res) => {
 });
 
 app.get("/api/documents/:id/pdf", async (req, res) => {
-  const pdfPath = path.join(OUTPUTS, req.params.id, "document.pdf");
   try {
-    await fs.access(pdfPath);
+    const pdfPath = await ensureLocalFile(req.params.id, "document.pdf", "document.pdf");
     res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", "inline");
+    res.setHeader("Content-Disposition", contentDisposition("document.pdf", true));
+    res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
     res.send(await fs.readFile(pdfPath));
   } catch {
     res.status(404).json({ error: "문서를 찾을 수 없습니다." });
