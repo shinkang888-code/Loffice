@@ -102,7 +102,15 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "https://loffice-sigma.vercel.a
 
 const app = express();
 app.use(cors({
-  origin: [FRONTEND_URL, "http://localhost:3001", "http://localhost:3000"],
+  origin(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+    const allowed = [FRONTEND_URL, "http://localhost:3001", "http://localhost:3000"];
+    if (allowed.includes(origin)) return callback(null, true);
+    return callback(null, false);
+  },
   credentials: true,
 }));
 app.use("/wopi", createWopiRouter(OUTPUTS));

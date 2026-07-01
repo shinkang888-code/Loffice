@@ -36,7 +36,7 @@ export function LoMenuBar({ ext = ".odt" }: LoMenuBarProps) {
 
   return (
     <div className="lo-menubar relative" ref={barRef}>
-      {menus.slice(0, 10).map((menu) => (
+      {menus.map((menu) => (
         <div key={menu.id} className="relative">
           <span
             className={`lo-menubar-item ${openMenu === menu.id ? "bg-[#d0d0d0]" : ""}`}
@@ -45,8 +45,8 @@ export function LoMenuBar({ ext = ".odt" }: LoMenuBarProps) {
             {menu.label}
           </span>
           {openMenu === menu.id && menu.items.length > 0 && (
-            <div className="absolute left-0 top-full z-[100] min-w-[200px] border border-[#aaa] bg-[#fafafa] py-1 shadow-lg">
-              {menu.items.slice(0, 40).map((item) => (
+            <div className="absolute left-0 top-full z-[100] max-h-[70vh] min-w-[240px] overflow-y-auto border border-[#aaa] bg-[#fafafa] py-1 shadow-lg">
+              {menu.items.map((item) => (
                 <button
                   key={item.command}
                   type="button"

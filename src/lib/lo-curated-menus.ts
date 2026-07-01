@@ -1,4 +1,5 @@
 import type { OfficeModule } from "./lo-menus";
+import loUi from "@/data/libreoffice-ui.json";
 
 export interface CuratedMenuItem {
   command: string;
@@ -67,7 +68,35 @@ const DRAW_EXTRA: CuratedMenu = {
   ],
 };
 
+type LoUiModule = {
+  menubar?: Array<{
+    id: string;
+    label: string;
+    items: Array<{ command: string; label: string }>;
+  }>;
+};
+
+function menusFromLibreOfficeUi(mod: OfficeModule): CuratedMenu[] | null {
+  const data = (loUi as Record<string, LoUiModule>)[mod];
+  if (!data?.menubar?.length) return null;
+
+  return data.menubar
+    .filter((menu) => menu.items.length > 0)
+    .map((menu) => ({
+      id: menu.id,
+      label: menu.label,
+      items: menu.items.map((item) => ({
+        command: item.command,
+        label: item.label,
+        icon: `lc_${item.command.replace(".uno:", "").toLowerCase()}`,
+      })),
+    }));
+}
+
 export function getCuratedMenus(mod: OfficeModule): CuratedMenu[] {
+  const full = menusFromLibreOfficeUi(mod);
+  if (full?.length) return full;
+
   if (mod === "sdraw" || mod === "simpress") {
     return [...BASE.slice(0, 4), DRAW_EXTRA, ...BASE.slice(4)];
   }

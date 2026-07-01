@@ -40,7 +40,7 @@ export function EditorCanvas({ doc }: EditorCanvasProps) {
       <iframe
         ref={iframeRef}
         src={editorUrl}
-        className="h-full min-h-[360px] w-full flex-1 border-0"
+        className="h-full min-h-0 w-full flex-1 border-0"
         title={`편집 — ${doc.name}`}
         allow="clipboard-read; clipboard-write"
         onLoad={() => registerEditorIframe(iframeRef.current)}

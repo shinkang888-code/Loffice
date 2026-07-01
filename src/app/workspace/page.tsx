@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { LofficeDesktopShell } from "@/components/office/LofficeDesktopShell";
-import { UniversalPreview } from "@/components/preview/UniversalPreview";
+import { WorkspacePanel } from "@/components/workspace/WorkspacePanel";
 import { LoCommandProvider } from "@/context/LoCommandContext";
 import { getDocument, type LofficeDocument } from "@/lib/storage";
 import { fixFilename } from "@/lib/filename";
@@ -37,7 +37,7 @@ function WorkspaceContent() {
       <LofficeDesktopShell
         fileName={doc.name}
         ext={doc.ext}
-        previewPanel={<UniversalPreview doc={doc} />}
+        previewPanel={<WorkspacePanel doc={doc} />}
       />
     </LoCommandProvider>
   );
